@@ -18,6 +18,7 @@ public class GoodReadsService {
     private String key;
 
     public List<Root> getAuthorBooks(String input) {
-        return goodReadsAPI.getAuthorBooks(host, key, input);
+        List<Root> authorBooks = goodReadsAPI.getAuthorBooks(host, key, input);
+        return authorBooks.subList(0, Math.min(authorBooks.size(), 10));
     }
 }
